@@ -12,9 +12,10 @@
     {
       echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
-    $ad1 = $POST['address1'];
-    $sql="INSERT INTO parties (address, stars, date_created,date_modified)
-    VALUES ($ad1,4,NOW(),NOW())";
+    $address = $_POST['address'];
+    $rating = $_POST['rating'];
+    $sql="INSERT INTO parties (address, rating, date_created,date_modified)
+    VALUES ('$address','$rating',NOW(),NOW())";
 
     if (!mysqli_query($con,$sql))
     {
